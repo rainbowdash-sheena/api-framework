@@ -3,6 +3,14 @@ import { URLSearchParams } from 'url';
 import axios, { AxiosResponse } from 'axios';
 import { Cat, CatMinInfo, CatsList, FailAddCat } from '../../@types/common';
 
+/**
+ * Этот конфиг отключает выбрасывание ошибок самим axios, если статус не 200.
+ * Иначе любая ожидаемая 404 - ломает тесты и статистику
+ */
+axios.defaults.validateStatus = function () {
+    return true;
+};
+
 export default class CoreApi extends Client {
   // endpoint core API
   static api: string = '/core/cats';

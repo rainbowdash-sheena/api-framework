@@ -10,6 +10,7 @@ export type CatMinInfo = {
   gender: 'male' | 'female' | 'unisex';
 };
 
+
 /**
  * Полная информация о коте
  * @property name - имя
@@ -31,6 +32,19 @@ export type Cat = {
   dislikes: number;
   message?: string;
 };
+
+/**
+ * Все коты по группам
+ * @property groups - массив групп
+ * @property title - заголовок группы
+ * @property cats - массив котов в группе
+ */
+export type allCats = {
+    groups: Array<{
+        title: string;
+        cats: Cat[]
+    }>
+}
 
 
 /**
